@@ -1,6 +1,7 @@
 import Polygon from './polygon.js';
 import ClickArea from './clickArea.js';
 import polygonToTriangle from "../../../services/polygonToTriangle";
+import sophieAyoub from "../json/sophieAyoub.json"
 
 let createjs;
 
@@ -15,19 +16,17 @@ export default function root(stage, onlyFirstFrame = false) {
     let polygons = [];
     stage.polygons = polygons;
 
-    if(stage.card_id){
-        // axiosAPI.get(`/calks/${stage.card_id}`).then((response)=>{
-        //     frames = response.data.content.frames;
-        //
-        //     if(!onlyFirstFrame) convertPolygonToTriangles(frames);
-        //
-        //     frames[0].shapes.map((shape) => {
-        //         let polygon = new Polygon(shape, stage);
-        //         polygons.push(polygon);
-        //         container.addChild(polygon);
-        //     })
-        //     stage.update();
-        // });
+    if(sophieAyoub){
+        frames = sophieAyoub.frames;
+
+        if(!onlyFirstFrame) convertPolygonToTriangles(frames);
+
+        frames[0].shapes.map((shape) => {
+            let polygon = new Polygon(shape, stage);
+            polygons.push(polygon);
+            container.addChild(polygon);
+        })
+        stage.update();
     }
 
     if(onlyFirstFrame) return;
@@ -41,29 +40,29 @@ export default function root(stage, onlyFirstFrame = false) {
     })
 
     function changeFrame(e, stage, container) {
-        // indexFrame++;
-        // if (indexFrame >= frames.length) indexFrame = 0;
-        //
-        // let nextFrame = frames[indexFrame];
-        // stage.polygons.map((polygon, index) => {
-        //     if (index >= nextFrame.shapes.length) return;
-        //     polygon.coords = polygon.projectedCoords = nextFrame.shapes[index].coords;
-        //     polygon.color = nextFrame.shapes[index].color;
-        // })
-        //
-        // if (stage.polygons.length > nextFrame.shapes.length) {
-        //     for (let i = nextFrame.shapes.length; i <= stage.polygons.length; i++) {
-        //         let polygon = stage.polygons[i];
-        //         container.removeChild(polygon);
-        //     }
-        //     stage.polygons.splice(nextFrame.shapes.length);
-        // } else if (stage.polygons.length < nextFrame.shapes.length) {
-        //     for (let i = stage.polygons.length; i < nextFrame.shapes.length; i++) {
-        //         let polygon = new Polygon(nextFrame.shapes[i], stage, true);
-        //         stage.polygons.push(polygon);
-        //         container.addChild(polygon);
-        //     }
-        // }
+        indexFrame++;
+        if (indexFrame >= frames.length) indexFrame = 0;
+
+        let nextFrame = frames[indexFrame];
+        stage.polygons.map((polygon, index) => {
+            if (index >= nextFrame.shapes.length) return;
+            polygon.coords = polygon.projectedCoords = nextFrame.shapes[index].coords;
+            polygon.color = nextFrame.shapes[index].color;
+        })
+
+        if (stage.polygons.length > nextFrame.shapes.length) {
+            for (let i = nextFrame.shapes.length; i <= stage.polygons.length; i++) {
+                let polygon = stage.polygons[i];
+                container.removeChild(polygon);
+            }
+            stage.polygons.splice(nextFrame.shapes.length);
+        } else if (stage.polygons.length < nextFrame.shapes.length) {
+            for (let i = stage.polygons.length; i < nextFrame.shapes.length; i++) {
+                let polygon = new Polygon(nextFrame.shapes[i], stage, true);
+                stage.polygons.push(polygon);
+                container.addChild(polygon);
+            }
+        }
     }
 }
 
