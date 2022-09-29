@@ -18,7 +18,6 @@ export default function root(stage, onlyFirstFrame = false) {
 
     if(sophieAyoub){
         frames = sophieAyoub.frames;
-
         if(!onlyFirstFrame) convertPolygonToTriangles(frames);
 
         frames[0].shapes.map((shape) => {
@@ -26,7 +25,6 @@ export default function root(stage, onlyFirstFrame = false) {
             polygons.push(polygon);
             container.addChild(polygon);
         })
-        stage.update();
     }
 
     if(onlyFirstFrame) return;

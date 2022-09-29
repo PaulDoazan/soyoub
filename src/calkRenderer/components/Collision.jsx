@@ -13,12 +13,13 @@ export default function Collision(props) {
         if(!props.onlyFirstFrame){
             createjs.Touch.enable(stage);
             createjs.Ticker.timingMode = createjs.Ticker.RAF;
-            stage.on('mousedown', ()=>{
+
                 createjs.Ticker.removeAllEventListeners("tick");
                 createjs.Ticker.on('tick', ()=>{
+                    console.log('updqte')
                     stage.update();
                 })
-            })
+
         }
 
         root(stage, props.onlyFirstFrame);

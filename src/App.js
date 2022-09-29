@@ -1,6 +1,6 @@
 import './App.css';
 import Collision from "./calkRenderer/components/Collision";
-import React from "react";
+import React, {useEffect} from "react";
 
 function App() {
   return (

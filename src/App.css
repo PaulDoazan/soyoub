@@ -5,18 +5,13 @@
 .canvas-container {
   width: 600px;
   margin: auto;
-  position: relative;
-  border-right: 1rem dotted white;
-  border-left: 1rem dotted white;
+  box-sizing: border-box;
+  border: #282c34 2rem solid;
 }
 
-.canvas-container:before {
-  content: " ";
-  position: absolute;
-  z-index: -1;
-  top: -1.5rem;
-  left: -1.5rem;
-  right: -1.5rem;
-  bottom: -1.5rem;
-  border: #282c34 2rem solid;
+@media (max-width: 720px) {
+  .canvas-container {
+    width: 100%;
+    border: #282c34 2rem solid;
+  }
 }
