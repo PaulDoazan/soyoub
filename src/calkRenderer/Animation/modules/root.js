@@ -68,9 +68,10 @@ const convertPolygonToTriangles = (frames) => {
     frames.map((frame)=>{
         let triangulatedShapes = [];
         frame.shapes.map((shape)=>{
+            let unlocked = shape.category !== 'locked';
             if(shape.category === 'locked'){
-                triangulatedShapes.push(shape);
-                return;
+                // triangulatedShapes.push(shape);
+                // return;
             }
             let triangles = polygonToTriangle.triangulate(shape.coords);
             triangles.map((triangle)=>{
@@ -78,7 +79,7 @@ const convertPolygonToTriangles = (frames) => {
                 triangle.map((corner) => {
                     if (corner && corner.length) convertedCoords.push({ x: corner[0], y: corner[1] })
                 })
-                triangulatedShapes.push({coords: convertedCoords, color: shape.color, unlocked: true})
+                triangulatedShapes.push({coords: convertedCoords, color: shape.color, unlocked: unlocked})
             })
         })
         frame.shapes = triangulatedShapes;
