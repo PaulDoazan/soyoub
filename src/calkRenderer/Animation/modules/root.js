@@ -70,13 +70,17 @@ const convertPolygonToTriangles = (frames) => {
     frames.map((frame)=>{
         let triangulatedShapes = [];
         frame.shapes.map((shape)=>{
+            if(shape.category === 'locked'){
+                triangulatedShapes.push(shape);
+                return;
+            }
             let triangles = polygonToTriangle.triangulate(shape.coords);
             triangles.map((triangle)=>{
                 let convertedCoords = [];
                 triangle.map((corner) => {
                     if (corner && corner.length) convertedCoords.push({ x: corner[0], y: corner[1] })
                 })
-                triangulatedShapes.push({coords: convertedCoords, color: shape.color, locked: shape.locked})
+                triangulatedShapes.push({coords: convertedCoords, color: shape.color, unlocked: true})
             })
         })
         frame.shapes = triangulatedShapes;

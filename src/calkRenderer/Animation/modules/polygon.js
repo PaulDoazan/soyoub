@@ -57,6 +57,7 @@ export default function polygon(polygon, stage, newProjectedCoords) {
     }
 
     sh.coords = coords;
+    if (polygon.unlocked) sh.unlocked = true;
     sh.fillColor = sh.color = fillColor;
     sh.strokeColor = strokeColor;
     sh.unit = 1;
@@ -182,6 +183,7 @@ function hexToRgb(hex) {
 }
 
 function detectCollision(e, sh) {
+    if (!sh.unlocked) return;
     let currentCoords;
     if (sh.interCoords) {
         currentCoords = sh.interCoords;

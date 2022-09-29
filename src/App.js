@@ -4,7 +4,7 @@ import React from "react";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
         <div className="canvas-container">
             <Collision card_id={1} onlyFirstFrame={false}/>
         </div>
