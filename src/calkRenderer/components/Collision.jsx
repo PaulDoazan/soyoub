@@ -16,7 +16,6 @@ export default function Collision(props) {
 
                 createjs.Ticker.removeAllEventListeners("tick");
                 createjs.Ticker.on('tick', ()=>{
-                    console.log('updqte')
                     stage.update();
                 })
 
