@@ -12,9 +12,9 @@ export default function clickArea() {
 
     mc.addChild(sh);
 
-    mc.on("mousedown", onDown);
+    //mc.on("mousedown", onDown);
     mc.on("pressup", onUp);
-    mc.on("pressmove", onMove);
+    //mc.on("pressmove", onMove);
 
     return mc;
 }
