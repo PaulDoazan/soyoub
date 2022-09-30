@@ -1,3 +1,7 @@
+:root {
+  --card-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px -8px 16px -8px;
+}
+
 .app-container {
   text-align: center;
 }
@@ -6,12 +10,19 @@
   width: 600px;
   margin: auto;
   box-sizing: border-box;
-  border: #282c34 2rem solid;
+  border: none;
+  outline: none;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 1rem;
+}
+
+.dropbox-img {
+  margin: 2rem;
+  width: 90px;
 }
 
 @media (max-width: 720px) {
   .canvas-container {
-    width: 100%;
-    border: #282c34 2rem solid;
+    width: 400px;
   }
 }
