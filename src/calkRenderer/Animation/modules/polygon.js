@@ -119,12 +119,12 @@ function updateShape(e) {
 
             tg.projectedCoords.map((projected, i) => {
                 if(startingCoords[i]){
-                    console.log(tg.unlocked)
-                    if(tg.unlocked){
-                        tg.interCoords.push({ x: startingCoords[i].x + (projected.x - startingCoords[i].x) * factor, y: startingCoords[i].y + (projected.y - startingCoords[i].y) * factor });
-                    } else {
-                        tg.interCoords.push({ x: projected.x, y: projected.y });
-                    }
+                    // if(tg.unlocked){
+                    //     tg.interCoords.push({ x: startingCoords[i].x + (projected.x - startingCoords[i].x) * factor, y: startingCoords[i].y + (projected.y - startingCoords[i].y) * factor });
+                    // } else {
+                    //     tg.interCoords.push({ x: projected.x, y: projected.y });
+                    // }
+                    tg.interCoords.push({ x: startingCoords[i].x + (projected.x - startingCoords[i].x) * factor, y: startingCoords[i].y + (projected.y - startingCoords[i].y) * factor });
                 } 
             })
 
