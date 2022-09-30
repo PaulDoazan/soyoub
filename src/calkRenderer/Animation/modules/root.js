@@ -18,7 +18,7 @@ export default function root(stage, onlyFirstFrame = false) {
 
     if(sophieAyoub){
         frames = sophieAyoub.frames;
-        if(!onlyFirstFrame) convertPolygonToTriangles(frames);
+        //if(!onlyFirstFrame) convertPolygonToTriangles(frames);
 
         frames[0].shapes.map((shape) => {
             let polygon = new Polygon(shape, stage);
