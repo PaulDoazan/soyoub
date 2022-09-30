@@ -57,7 +57,10 @@ export default function polygon(polygon, stage, newProjectedCoords) {
     }
 
     sh.coords = coords;
-    if (polygon.unlocked) sh.unlocked = true;
+    console.log(polygon.category);
+    if (polygon.category === "unlocked"){
+        sh.unlocked = true;
+    } 
     sh.fillColor = sh.color = fillColor;
     sh.strokeColor = strokeColor;
     sh.unit = 1;
@@ -115,7 +118,14 @@ function updateShape(e) {
             tg.interColor = null;
 
             tg.projectedCoords.map((projected, i) => {
-                if(startingCoords[i]) tg.interCoords.push({ x: startingCoords[i].x + (projected.x - startingCoords[i].x) * factor, y: startingCoords[i].y + (projected.y - startingCoords[i].y) * factor });
+                if(startingCoords[i]){
+                    console.log(tg.unlocked)
+                    if(tg.unlocked){
+                        tg.interCoords.push({ x: startingCoords[i].x + (projected.x - startingCoords[i].x) * factor, y: startingCoords[i].y + (projected.y - startingCoords[i].y) * factor });
+                    } else {
+                        tg.interCoords.push({ x: projected.x, y: projected.y });
+                    }
+                } 
             })
 
 
