@@ -1,7 +1,7 @@
 let createjs;
 let radius = 30;
 let count = 0;
-let maxCount = 240;
+let maxCount = 96;
 
 export default function clickArea() {
     createjs = window.createjs;
