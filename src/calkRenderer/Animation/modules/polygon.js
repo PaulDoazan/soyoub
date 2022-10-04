@@ -57,7 +57,6 @@ export default function polygon(polygon, stage, newProjectedCoords) {
     }
 
     sh.coords = coords;
-    console.log(polygon.category);
     if (polygon.category === "unlocked"){
         sh.unlocked = true;
     } 

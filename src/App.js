@@ -1,13 +1,15 @@
 import './App.css';
 import Collision from "./calkRenderer/components/Collision";
 import React, {useEffect} from "react";
+import TranslatedPicture from "./components/TranslatedPicture";
 
 function App() {
   return (
     <div className="app-container">
         <div className="main-container">
-          <img className="speaking" src='/soSpeaking.png'></img>
-          <img className="speaking s-down" src='/ayoubSpeaking.png'></img>
+          <TranslatedPicture imgSrc={"/so"} imgTop={true}/>
+          <TranslatedPicture imgSrc={"/ayoub"} imgTop={false}/>
+          
           <div className="canvas-container">
               <Collision card_id={1} onlyFirstFrame={false}/>
           </div>

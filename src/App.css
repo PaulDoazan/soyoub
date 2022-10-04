@@ -28,16 +28,38 @@
   box-shadow: var(--card-shadow);
 }
 
+.picture-container {
+  position: relative;
+}
+
 .speaking {
   width: 100%;
+  padding-bottom: 2rem;
 }
 
-.s-down {
-  margin-bottom: 2rem;
+.flags {
+  position: absolute;
+  display: flex;
 }
 
-.navbar {
+.flags-top {
+  bottom: 40%;
+  right: 5%;
+}
 
+.flags-bottom {
+  bottom: 20%;
+  left: 15%;
+}
+
+.lg-btn {
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.selected {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 @media (max-width: 720px) {
