@@ -10,7 +10,7 @@ export default function TranslatedPicture(props) {
     return (
         <div className='picture-container'>
             <img className="speaking" src={`${props.imgSrc}-${lang}.png`}></img>
-            <Translater clickHandler={(arg)=>{handleClick(arg)}} className="translater" lg={lang} imgTop={props.imgTop}/>
+            {/* <Translater clickHandler={(arg)=>{handleClick(arg)}} className="translater" lg={lang} imgTop={props.imgTop}/> */}
         </div>
     )
 }
