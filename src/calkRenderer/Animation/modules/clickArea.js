@@ -1,5 +1,7 @@
 let createjs;
 let radius = 30;
+let count = 0;
+let maxCount = 240;
 
 export default function clickArea() {
     createjs = window.createjs;
@@ -13,11 +15,24 @@ export default function clickArea() {
     mc.addChild(sh);
 
     //mc.on("mousedown", onDown);
-    mc.on("pressup", onUp);
+    mc.on("click", onUp);
+    mc.on("tick", onTick);
     //mc.on("pressmove", onMove);
 
     return mc;
+
+    function onTick(e) {
+        let stage = e.currentTarget.parent;
+        
+        count++;
+        if(count > maxCount) {
+            count = 0;
+            stage.dispatchEvent(new createjs.Event("changeFrame"));
+            stage.dispatchEvent(new createjs.Event("targetUp"));
+        }
+    }    
 }
+
 
 function onDown(e) {
     let tg = e.currentTarget;
@@ -47,6 +62,7 @@ function onDown(e) {
 }
 
 function onUp(e) {
+    count = 0;
     let tg = e.currentTarget;
     let stage = tg.parent;
     tg.removeChild(tg.targetCircle);

@@ -3,11 +3,14 @@
 }
 
 .app-container {
+  width: 600px;
+  margin: auto;
+  padding: 1rem 0;
   text-align: center;
 }
 
 .canvas-container {
-  width: 600px;
+  width: 100%;
   margin: auto;
   box-sizing: border-box;
   border: none;
@@ -17,12 +20,28 @@
 }
 
 .dropbox-img {
-  margin: 2rem;
+  margin: 2rem 0;
   width: 90px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  box-shadow: var(--card-shadow);
+}
+
+.speaking {
+  width: 100%;
+}
+
+.s-down {
+  margin-bottom: 2rem;
+}
+
+.navbar {
+
 }
 
 @media (max-width: 720px) {
-  .canvas-container {
+  .app-container {
     width: 350px;
   }
 }
