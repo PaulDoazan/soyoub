@@ -37,13 +37,22 @@
   padding-bottom: 2rem;
 }
 
+.image-1 {
+  position: relative;
+}
+
+.image-2 {
+  position: absolute;
+  left: 0;
+}
+
 .flags {
   position: absolute;
   display: flex;
 }
 
 .flags-top {
-  bottom: 40%;
+  bottom: 30%;
   right: 5%;
 }
 
