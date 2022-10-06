@@ -9,7 +9,7 @@ export default function Translater(props) {
     <div className={`flags ${props.imgTop ? "flags-top" : "flags-bottom"}`}>
       <div className="chooseLang">
         <div>
-          <span data-tag='en' id="en-lang" className={`${props.lg === "en" ? "selected" : ""} lang en-lang`} onClick={handleClick}>
+          <span data-tag='en' id="en-lang" className={`${props.lg === "en" ? "selected" : ""} lang en-lang noSelect`} onClick={handleClick}>
             <svg viewBox="0 0 1000 500">
             <g
                 id="g578"
@@ -50,10 +50,10 @@ export default function Translater(props) {
             </g>
           </svg>
           </span>
-          <span data-tag='fr' id="fr-lang" className={`${props.lg === "fr" ? "selected" : ""} lang fr-lang`} onClick={handleClick}>
+          <span data-tag='fr' id="fr-lang" className={`${props.lg === "fr" ? "selected" : ""} lang fr-lang noSelect`} onClick={handleClick}>
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20"><rect width="30" height="20" fill="#ED2939"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#002395"/></svg>
           </span>
-          <span data-tag='co'id="co-lang" className={`${props.lg === "co" ? "selected" : ""} lang co-lang`} onClick={handleClick}>
+          <span data-tag='co'id="co-lang" className={`${props.lg === "co" ? "selected" : ""} lang co-lang noSelect`} onClick={handleClick}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 60 40" fill="#fff">
               <title>Flag of the Comoros</title>
               <path d="m0 0h60v40H0z"/>
@@ -69,9 +69,6 @@ export default function Translater(props) {
           </span>
         </div>
       </div>
-        {/* <span data-tag='en' onClick={handleClick} className={`lg-btn ${props.lg === "en" ? "selected" : ""} en-lang`}></span>
-        <div data-tag='fr' onClick={handleClick} className={`lg-btn ${props.lg === "fr" ? "selected" : ""}`}>Fr</div>
-        <div data-tag='co' onClick={handleClick} className={`lg-btn ${props.lg === "co" ? "selected" : ""}`}>Co</div> */}
     </div>
   )
 }
